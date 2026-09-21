@@ -4,10 +4,9 @@
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
-  // Theme toggle — persist choice, default dark
+  // Theme toggle — session-local state, default dark
   const root = document.documentElement;
   const themeBtn = document.querySelector(".theme-toggle");
-  const STORAGE_KEY = "umbry-theme";
   const applyTheme = (t) => {
     root.setAttribute("data-theme", t);
     if (themeBtn) {
@@ -17,13 +16,11 @@
       );
     }
   };
-  const saved = (() => { try { return localStorage.getItem(STORAGE_KEY); } catch (_) { return null; } })();
-  applyTheme(saved === "light" ? "light" : "dark");
+  applyTheme("dark");
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
       const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next);
-      try { localStorage.setItem(STORAGE_KEY, next); } catch (_) {}
     });
   }
 
@@ -40,8 +37,17 @@
       a.addEventListener("click", () => {
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
       })
     );
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+        toggle.focus();
+      }
+    });
   }
 
   // Reveal-on-scroll (only inner elements — never whole sections)

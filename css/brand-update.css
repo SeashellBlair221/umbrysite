@@ -1,0 +1,126 @@
+/* UMBRY approved brand refresh, September 21, 2026.
+   Existing layout, typography, content, and portraits are retained.
+   Artwork is exported from the approved logo package, not retyped. */
+:root,
+[data-theme="dark"] {
+  --color-bg: #0a0c0b;
+  --color-primary: #00ca83;
+  --color-primary-soft: #42eab1;
+  --color-primary-deep: #00b575;
+  --color-primary-glow: rgba(0, 190, 122, 0.28);
+  --color-primary-faint: rgba(0, 190, 122, 0.1);
+  --color-accent-purple-deep: #4906ad;
+  --color-accent-purple-faint: rgba(73, 6, 173, 0.18);
+  --color-accent-magenta: #f814bd;
+  --color-accent-magenta-soft: #fa79d9;
+  --color-accent-magenta-glow: rgba(248, 20, 189, 0.25);
+  --color-accent-magenta-faint: rgba(248, 20, 189, 0.1);
+}
+
+.brand-lockup {
+  display: block;
+  width: 154px;
+  height: auto;
+  flex-shrink: 0;
+}
+.brand-lockup--light { display: none; }
+.hero--static .hero__logo .brand-lockup { width: clamp(216px, 20vw, 270px); }
+.footer .brand-lockup { width: 185px; }
+
+/* Dark asteroid facets sampled from the existing hero artwork.
+   The texture remains inside the live, selectable ombré lettering. */
+.hero--static .hero__display-line {
+  background:
+    url("../images/asteroid-type-texture.png") 0 42% / 240px 360px repeat,
+    linear-gradient(155deg, transparent 20%, rgba(233,181,255,.15) 37%, transparent 44%, rgba(26,0,58,.13) 61%, transparent 74%),
+    linear-gradient(105deg, #7808e4 0%, #8d0bea 24%, #bb15e5 47%, #e91acb 68%, #f814bd 88%, #f814bd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #8007fa;
+  text-shadow: none;
+  filter: none;
+}
+.hero--static .hero__display-line--accent {
+  background: linear-gradient(173deg, #00b575 5%, #00ca83 31%, #55e8b5 40%, #00b575 50%, #00ca83 80%, #00b575 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #00ca83;
+  filter: none;
+}
+.hero--static .hero__display-line--accent::after {
+  background: linear-gradient(90deg, #4906ad, #f814bd 50%, #00ca83);
+  opacity: 0.7;
+}
+.btn--primary {
+  background: linear-gradient(170deg, #32dba3 0%, #00ca83 30%, #00b575 100%);
+  border-color: #00b575;
+  color: #031c11;
+  box-shadow: 0 3px 18px rgba(0, 190, 122, 0.16);
+}
+.btn--primary:hover {
+  background: linear-gradient(170deg, #55e8b5 0%, #00ca83 45%, #00b575 100%);
+  color: #031c11;
+  box-shadow: 0 4px 22px rgba(0, 190, 122, 0.23);
+}
+.hero--static {
+  background:
+    radial-gradient(ellipse 55% 55% at 78% 42%, rgba(0,190,122,.09), transparent 75%),
+    radial-gradient(ellipse 35% 45% at 8% 20%, rgba(73,6,173,.09), transparent 60%),
+    var(--color-bg);
+}
+.hero--static .hero__visual::before {
+  background:
+    radial-gradient(ellipse 55% 55% at 62% 50%, rgba(0,190,122,.16), transparent 72%),
+    radial-gradient(ellipse 35% 35% at 28% 40%, rgba(73,6,173,.15), transparent 65%);
+}
+
+/* Deep companions for small text on white, rather than neon on white. */
+[data-theme="light"] {
+  --color-bg: #f7f8f6;
+  --color-primary: #00764c;
+  --color-primary-deep: #006440;
+  --color-primary-soft: #005739;
+  --color-accent-magenta: #a31980;
+  --color-accent-magenta-soft: #8a136e;
+}
+.tcard__idx,
+.tcard__label,
+.telemetry__chip { font-size: var(--text-xs); }
+.tcard__idx { color: #d66ae8; }
+.tcard__label { color: #a6b9b0; }
+[data-theme="light"] .tcard__idx { color: #8e247e; }
+[data-theme="light"] .brand-lockup--dark { display: none; }
+[data-theme="light"] .brand-lockup--light { display: block; }
+[data-theme="light"] .hero--static .hero__display-line {
+  background-image:
+    url("../images/asteroid-type-texture.png"),
+    linear-gradient(155deg, transparent 20%, rgba(233,181,255,.09) 37%, transparent 44%, rgba(26,0,58,.1) 61%, transparent 74%),
+    linear-gradient(105deg, #4906ad 0%, #6209c9 24%, #8f0dc5 47%, #a31980 75%, #b01388 100%);
+}
+[data-theme="light"] .hero--static .hero__display-line--accent {
+  background-image: linear-gradient(173deg, #007149 0%, #008456 38%, #007149 48%, #00603d 100%);
+  filter: none;
+}
+[data-theme="light"] .hero--static .hero__display-line--accent::after {
+  background: linear-gradient(90deg, #4906ad, #a31980 50%, #007149);
+}
+[data-theme="light"] .btn--primary,
+[data-theme="light"] .btn--primary:hover { color: #031c11; }
+[data-theme="light"] .header--floating .header__inner {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #ccdcd3;
+  box-shadow: 0 8px 30px rgba(10, 30, 20, 0.1);
+}
+
+.contact__grid > *,
+.contact__channels li,
+.contact__form .field { min-width: 0; }
+.contact__channels a { overflow-wrap: anywhere; }
+.contact__form .btn { white-space: normal; }
+
+@media (max-width: 480px) {
+  .header .brand-lockup { width: 142px; }
+  .contact__form { padding: var(--space-5); }
+}
