@@ -119,6 +119,13 @@
 .contact__form .field { min-width: 0; }
 .contact__channels a { overflow-wrap: anywhere; }
 .contact__form .btn { white-space: normal; }
+/* Contain long native select labels in Safari without changing the options. */
+.contact__form select {
+  max-width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
 @media (max-width: 480px) {
   .header .brand-lockup { width: 142px; }
