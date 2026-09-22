@@ -1,0 +1,60 @@
+/* Approved floating beacon: homepage hero and smaller contact accent. */
+.hero--static .hero__inner { gap: clamp(1rem, 3vw, 3rem); }
+.hero--static .hero__visual {
+  aspect-ratio: 840 / 804;
+  margin: -1rem 0;
+  max-height: 560px;
+}
+.hero--static .hero__visual::before { opacity: .35; }
+.hero--static .hero__visual img {
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 36%, rgba(0,0,0,.96) 57%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 36%, rgba(0,0,0,.96) 57%, transparent 100%);
+}
+.contact__beacon {
+  position: relative;
+  width: min(100%, 220px);
+  margin: 1.5rem auto -1rem;
+  aspect-ratio: 7 / 6;
+  pointer-events: none;
+}
+.contact__beacon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 34%, rgba(0,0,0,.94) 53%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 34%, rgba(0,0,0,.94) 53%, transparent 100%);
+}
+.hero--static .hero__visual .beacon-art--light,
+.contact__beacon .beacon-art--light { display: none; }
+[data-theme="light"] .hero--static .hero__visual .beacon-art--dark,
+[data-theme="light"] .contact__beacon .beacon-art--dark { display: none; }
+[data-theme="light"] .hero--static .hero__visual .beacon-art--light,
+[data-theme="light"] .contact__beacon .beacon-art--light {
+  display: block;
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  filter: none;
+}
+#contact { scroll-margin-top: 110px; }
+@media (max-width: 899px) {
+  .hero--static .hero__visual {
+    order: 0;
+    margin: -1rem auto -1.5rem;
+    width: min(100%, 440px);
+    max-height: 330px;
+  }
+  .hero--static .hero__inner { gap: 1.5rem; }
+  .hero--static .hero__copy { padding-top: 1rem; }
+  .contact__beacon { width: 160px; margin: 1.5rem auto 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

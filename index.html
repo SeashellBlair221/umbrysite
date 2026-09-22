@@ -37,6 +37,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/brand-update.css" />
+    <link rel="stylesheet" href="css/beacon.css" />
   </head>
   <body>
     <!-- Ambient background -->
@@ -99,10 +100,6 @@
       <section class="hero hero--static">
         <div class="hero__inner container">
           <div class="hero__copy">
-            <div class="hero__logo" aria-label="UMBRY">
-              <img class="brand-lockup brand-lockup--dark" src="images/brand-lockup-dark.webp" width="900" height="188" alt="UMBRY" />
-              <img class="brand-lockup brand-lockup--light" src="images/brand-lockup-light.webp" width="900" height="188" alt="UMBRY" />
-            </div>
             <h1 class="hero__display">
               <span class="hero__display-line">FROM SHADOW</span>
               <span class="hero__display-line hero__display-line--accent">TO SIGNAL.</span>
@@ -119,13 +116,15 @@
 
           <div class="hero__visual" aria-hidden="true">
             <img
-              src="images/hero-shadow-to-signal.png"
+              class="beacon-art--dark"
+              src="images/beacon-hero.webp"
               alt=""
-              width="1456"
-              height="816"
+              width="840"
+              height="804"
               fetchpriority="high"
               decoding="async"
             />
+            <img class="beacon-art--light" src="images/beacon-hero-light.webp" alt="" width="840" height="804" decoding="async" />
           </div>
         </div>
       </section>
@@ -450,6 +449,10 @@
                 <a href="tel:+16157968866">615-796-8866</a>
               </li>
             </ul>
+            <div class="contact__beacon" aria-hidden="true">
+              <img class="beacon-art--dark" src="images/beacon-contact.webp" width="700" height="600" alt="" loading="lazy" decoding="async" />
+              <img class="beacon-art--light" src="images/beacon-contact-light.webp" width="700" height="600" alt="" loading="lazy" decoding="async" />
+            </div>
           </div>
 
           <form
