@@ -131,3 +131,94 @@
   .header .brand-lockup { width: 142px; }
   .contact__form { padding: var(--space-5); }
 }
+
+/* Name definition block, in the hero below the tagline and buttons.
+   Dictionary serif keeps it distinct from the site's display and body type;
+   the UMBRY word stays in the site's display face. */
+.definition {
+  --font-dictionary: "Source Serif 4", "Georgia", serif;
+  position: relative;
+  max-width: 440px;
+  margin: clamp(var(--space-6), 3vw, var(--space-8)) 0 0;
+  padding: var(--space-4) var(--space-5);
+  background: rgba(10, 22, 18, 0.72);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(6px);
+}
+.definition::before {
+  content: "";
+  position: absolute;
+  inset-block: var(--space-3);
+  left: -1px;
+  width: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, #4906ad 0%, #f814bd 50%, #00ca83 100%);
+}
+.definition__term {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+.definition__word {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--color-text-strong);
+}
+.definition__meta { display: inline-flex; align-items: baseline; gap: var(--space-2); }
+.definition__phonetic {
+  font-family: var(--font-dictionary);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.definition__pos {
+  font-family: var(--font-dictionary);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+.definition__senses { margin: 0; }
+.definition__senses ol {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sense;
+}
+.definition__senses li {
+  counter-increment: sense;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: var(--space-2);
+  font-family: var(--font-dictionary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+.definition__senses li::before {
+  content: counter(sense) ".";
+  font-family: var(--font-dictionary);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.definition__tagline {
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-dictionary);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+[data-theme="light"] .definition { background: #ffffff; border-color: rgba(11, 20, 16, 0.10); }
+[data-theme="light"] .definition__term { border-color: rgba(11, 20, 16, 0.10); }
+[data-theme="light"] .definition__word { color: #0b1410; }
+[data-theme="light"] .definition__phonetic,
+[data-theme="light"] .definition__senses li { color: #3d4f48; }
+[data-theme="light"] .definition::before { background: linear-gradient(180deg, #4906ad 0%, #a31980 50%, #007149 100%); }
